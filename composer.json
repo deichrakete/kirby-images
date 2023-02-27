@@ -1,0 +1,21 @@
+{
+  "name": "foerdeliebe/image",
+  "description": "Alternative formats and responsive images",
+  "type": "kirby-plugin",
+  "license": "MIT",
+  "homepage": "https://getkirby.com/plugins/foerdeliebe/image",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Diana Gerken",
+      "email": "diana@foerdeliebe.de",
+      "homepage": "https://getkirby.com/plugins/foerdeliebe"
+    }
+  ],
+  "require": {
+    "getkirby/composer-installer": "^1.2"
+  },
+  "extra": {
+    "installer-name": "image"
+  }
+}
