@@ -1,5 +1,7 @@
 <?php
 
-Kirby::plugin('foerdeliebe/image', [
-
+Kirby::plugin('foerdeliebe/images', [
+    'snippets' => [
+        'images' => __DIR__ . '/snippets/images.php',
+    ],
 ]);
