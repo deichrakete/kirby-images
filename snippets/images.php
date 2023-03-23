@@ -19,11 +19,14 @@ if (!isset($class)) {
 
 <figure <?php e($class != '', 'class="' . $class . '"') ?> >
     <picture>
-        <source
-            srcset="<?= $image->srcset('avif') ?>"
-            sizes="<?= $sizes ?>"
-            type="image/avif"
-        >
+        <?php // NOTE: avif can´t handle png alpha channel with ImageMagick 6, just with ImageMagick 7 ?>
+        <?php if ($image->mime() != 'image/png') : ?>
+            <source
+                srcset="<?= $image->srcset('avif') ?>"
+                sizes="<?= $sizes ?>"
+                type="image/avif"
+            >
+        <?php endif ?>
         <source
             srcset="<?= $image->srcset('webp') ?>"
             sizes="<?= $sizes ?>"
