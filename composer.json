@@ -4,7 +4,7 @@
   "type": "kirby-plugin",
   "license": "MIT",
   "homepage": "https://gitlab.com/foerdeliebe/kirby/images",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Diana Gerken",
