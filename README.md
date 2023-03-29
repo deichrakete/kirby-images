@@ -2,6 +2,8 @@
 
 Alternative formats and responsive images
 
+This plugin is wip!
+
 ## Installation
 
 ### Download
@@ -11,13 +13,13 @@ Download and copy this repository to `/site/plugins/images`.
 ### Git submodule
 
 ```
-git submodule add https://gitlab.com/foerdeliebe/kirby/images.git site/plugins/images
+git submodule add https://github.com/foerdeliebe/kirby-images.git site/plugins/images
 ```
 
 ### Composer
 
 ```
-composer require foerdeliebe/images
+composer require foerdeliebe/kirby-images
 ```
 
 ## Setup
