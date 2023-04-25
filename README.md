@@ -31,28 +31,22 @@ ImageMagick
 ### Configuration
 
 In site/config/config.php
-```
+```php
 return [
   'thumbs' => [
     'driver' => 'im',
     'srcsets' => [
-      'default' => [
-        '400w'  => ['width' => 400, 'quality' => 80],
-        '800w'  => ['width' => 800, 'quality' => 80],
-        '1000w'  => ['width' => 1000, 'quality' => 80],
-        '1200w' => ['width' => 1200, 'quality' => 80],
-       ],
-      'avif' => [
-        '400w'  => ['width' => 400, 'format' => 'avif'],
-        '800w'  => ['width' => 800, 'format' => 'avif'],
-        '1000w'  => ['width' => 1000, 'format' => 'avif'],
-        '1200w' => ['width' => 1200, 'format' => 'avif'],
+      'teaser' => [
+        '400w'  => ['width' => 400, 'height' => 200, 'crop' => true, 'quality' => 85],
+        '800w'  => ['width' => 800, 'height' => 400, 'crop' => true, 'quality' => 85],
+        '1000w' => ['width' => 1000, 'height' => 500, 'crop' => true, 'quality' => 85],
+        '1200w' => ['width' => 1200, 'height' => 600, 'crop' => true, 'quality' => 85],
       ],
-      'webp' => [
-        '400w'  => ['width' => 400, 'format' => 'webp'],
-        '800w'  => ['width' => 800, 'format' => 'webp'],
-        '1000w'  => ['width' => 1000, 'format' => 'webp'],
-        '1200w' => ['width' => 1200, 'format' => 'webp'],
+      'slide' => [
+        '400w'  => ['width' => 400, 'quality' => 85],
+        '800w'  => ['width' => 800, 'quality' => 85],
+        '1000w' => ['width' => 1000, 'quality' => 85],
+        '1200w' => ['width' => 1200, 'quality' => 85],
       ],
     ]
   ]
@@ -61,12 +55,14 @@ return [
 ```
 ### Templating
 
-```
+```php
 <?php snippet('images', [
-  'image' => $image,
-  'title' => $title,
-  'sizes' => '(min-width: 800px) 33vw, 50vw',
-  'class' => 'image',
+  'image' => $image, # Kirby\Cms\File
+  'title' => 'Another slide image', # optional
+  'sizes' => '(min-width: 800px) 33vw, 50vw', # optional
+  'srcset' => 'slide', # required
+  'caption' => 'A caption that describes the image', # optional
+  'class' => 'first-slide', # optional
 ]) ?>
 
 ```
