@@ -27,14 +27,25 @@ if (!isset($srcset)) {
     throw new Exception('images: you need to add a srcset');
 }
 
-$avif = Config::get('thumbs.srcsets.' . $srcset);
-$webp = Config::get('thumbs.srcsets.' . $srcset);
+if (!isset($image)) {
+    throw new Exception('images: image is not defined');
+}
 
-foreach ($avif as $key => $value) {
+if (!($image instanceof Kirby\Cms\File)) {
+    throw new Exception('images: image is not type of \Kirby\Cms\File');
+};
+
+$config = Config::get('thumbs.srcsets.' . $srcset);
+
+if (!$config) {
+    throw new Exception('images: srcset ' . $srcset . ' doesn\'t exist');
+}
+
+foreach ($avif = $config as $key => $value) {
     $avif[$key]['format'] = 'avif';
 }
 
-foreach ($webp as $key => $value) {
+foreach ($webp = $config as $key => $value) {
     $webp[$key]['format'] = 'webp';
 }
 ?>
