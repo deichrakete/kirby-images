@@ -6,22 +6,16 @@
  * @var string $title
  * @var string $class
  * @var string $caption
+ * @var bool $lazy
  */
 
 use Kirby\Toolkit\Config;
 
-if (!isset($title)) {
-    $title = '';
-}
-if (!isset($sizes)) {
-    $sizes = '';
-}
-if (!isset($class)) {
-    $class = '';
-}
-if (!isset($caption)) {
-    $caption = '';
-}
+$title ??= '';
+$sizes ??= '';
+$class ??= '';
+$caption ??= '';
+$lazy ??= true;
 
 if (!isset($srcset)) {
     throw new Exception('images: you need to add a srcset');
@@ -50,6 +44,22 @@ foreach ($webp = $config as $key => $value) {
 }
 ?>
 
+<?php if($image->extension() === 'svg'): ?>
+    <figure <?php e($class != '', 'class="' . $class . '"') ?> >
+        <img
+            alt="<?= $image->alt() ? $image->alt() : $title ?>"
+            loading="<?php e($lazy, 'lazy', 'eager') ?>"
+            src="<?= $image->url() ?>"
+            width="<?= $image->width() ?>"
+            height="<?= $image->height() ?>"
+        >
+        <?php if ($caption != ''): ?>
+            <figcaption><?= $caption ?></figcaption>
+        <?php endif; ?>
+    </figure>
+    <?php return; ?>
+<?php endif; ?>
+
 <figure <?php e($class != '', 'class="' . $class . '"') ?> >
     <picture>
         <source
@@ -64,7 +74,7 @@ foreach ($webp = $config as $key => $value) {
         >
         <img
             alt="<?= $image->alt() ? $image->alt() : $title ?>"
-            loading="lazy"
+            loading="<?php e($lazy, 'lazy', 'eager') ?>"
             src="<?= $image->resize(400)->url() ?>"
             srcset="<?= $image->srcset($srcset) ?>"
             sizes="<?= $sizes ?>"
