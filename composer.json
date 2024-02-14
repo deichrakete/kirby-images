@@ -4,7 +4,7 @@
   "type": "kirby-plugin",
   "license": "MIT",
   "homepage": "https://github.com/foerdeliebe/kirby-images",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "authors": [
     {
       "name": "Diana Gerken",
@@ -13,8 +13,7 @@
     }
   ],
   "require": {
-    "getkirby/composer-installer": "^1.2",
-    "ext-imagick": "*"
+    "getkirby/composer-installer": "^1.2"
   },
   "extra": {
     "installer-name": "images"
