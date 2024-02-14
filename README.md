@@ -24,17 +24,15 @@ composer require foerdeliebe/kirby-images
 
 ## Setup
 
-ImageMagick
-
-<!-- Additional instructions on how to configure the plugin (e.g. blueprint setup, config options, etc.) -->
-
 ### Configuration
 
 In site/config/config.php
 ```php
 return [
+  'foerdeliebe.images.avif' => true, // AVIF Support - false is default
+  'foerdeliebe.images.webp' => true, // WEBP Support - false is default
   'thumbs' => [
-    'driver' => 'im',
+    'driver' => 'im', // optional - ImageMagick has better avif support
     'srcsets' => [
       'teaser' => [
         '400w'  => ['width' => 400, 'height' => 200, 'crop' => true, 'quality' => 85],
@@ -63,6 +61,7 @@ return [
   'srcset' => 'slide', # required
   'caption' => 'A caption that describes the image', # optional
   'class' => 'first-slide', # optional
+  'lazy' => false, # optional
 ]) ?>
 
 ```

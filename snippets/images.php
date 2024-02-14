@@ -35,12 +35,16 @@ if (!$config) {
     throw new Exception('images: srcset ' . $srcset . ' doesn\'t exist');
 }
 
-foreach ($avif = $config as $key => $value) {
-    $avif[$key]['format'] = 'avif';
+if (option('foerdeliebe.images.avif') === true) {
+    foreach ($avif = $config as $key => $value) {
+        $avif[$key]['format'] = 'avif';
+    }
 }
 
-foreach ($webp = $config as $key => $value) {
-    $webp[$key]['format'] = 'webp';
+if (option('foerdeliebe.images.webp') === true) {
+    foreach ($webp = $config as $key => $value) {
+        $webp[$key]['format'] = 'webp';
+    }
 }
 ?>
 
@@ -62,16 +66,22 @@ foreach ($webp = $config as $key => $value) {
 
 <figure <?php e($class != '', 'class="' . $class . '"') ?> >
     <picture>
-        <source
-            srcset="<?= $image->srcset($avif) ?>"
-            sizes="<?= $sizes ?>"
-            type="image/avif"
-        >
-        <source
-            srcset="<?= $image->srcset($webp) ?>"
-            sizes="<?= $sizes ?>"
-            type="image/webp"
-        >
+        <?php if (option('foerdeliebe.images.avif') === true): ?>
+            <source
+                srcset="<?= $image->srcset($avif) ?>"
+                sizes="<?= $sizes ?>"
+                type="image/avif"
+            >
+        <?php endif; ?>
+
+        <?php if (option('foerdeliebe.images.webp') === true): ?>
+            <source
+                srcset="<?= $image->srcset($webp) ?>"
+                sizes="<?= $sizes ?>"
+                type="image/webp"
+            >
+        <?php endif; ?>
+
         <img
             alt="<?= $image->alt() ? $image->alt() : $title ?>"
             loading="<?php e($lazy, 'lazy', 'eager') ?>"
