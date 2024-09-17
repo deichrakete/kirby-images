@@ -13,13 +13,13 @@ Download and copy this repository to `/site/plugins/images`.
 ### Git submodule
 
 ```
-git submodule add https://github.com/foerdeliebe/kirby-images.git site/plugins/images
+git submodule add https://github.com/deichrakete/kirby-images.git site/plugins/images
 ```
 
 ### Composer
 
 ```
-composer require foerdeliebe/kirby-images
+composer require deichrakete/kirby-images
 ```
 
 ## Setup
@@ -29,8 +29,8 @@ composer require foerdeliebe/kirby-images
 In site/config/config.php
 ```php
 return [
-  'foerdeliebe.images.avif' => true, // AVIF Support - false is default
-  'foerdeliebe.images.webp' => true, // WEBP Support - false is default
+  'deichrakete.images.avif' => true, // AVIF Support - false is default
+  'deichrakete.images.webp' => true, // WEBP Support - false is default
   'thumbs' => [
     'driver' => 'im', // optional - ImageMagick has better avif support
     'srcsets' => [
@@ -80,7 +80,7 @@ MIT
 
 ## Credits
 
-- [Diana Gerken](https://getkirby.com/plugins/foerdeliebe)
+- [Diana Gerken](https://getkirby.com/plugins/deichrakete)
 
 
 

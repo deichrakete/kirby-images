@@ -1,7 +1,8 @@
 <?php
+
 use Kirby\Cms\App as Kirby;
 
-Kirby::plugin('foerdeliebe/images', [
+Kirby::plugin('deichrakete/images', [
     'options' => [
         'avif' => false,
         'webp' => false,

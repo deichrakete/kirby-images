@@ -1,21 +1,26 @@
 {
-  "name": "foerdeliebe/kirby-images",
-  "description": "Alternative formats and responsive images",
-  "type": "kirby-plugin",
-  "license": "MIT",
-  "homepage": "https://github.com/foerdeliebe/kirby-images",
-  "version": "2.1.0",
-  "authors": [
-    {
-      "name": "Diana Gerken",
-      "email": "diana@foerdeliebe.com",
-      "homepage": "https://foerdeliebe.com"
+    "name": "deichrakete/kirby-images",
+    "description": "Alternative formats and responsive images",
+    "type": "kirby-plugin",
+    "license": "MIT",
+    "homepage": "https://github.com/deichrakete/kirby-images",
+    "version": "3.0.0",
+    "authors": [
+        {
+            "name": "Diana Gerken",
+            "email": "diana@deichrakete.com",
+            "homepage": "https://deichrakete.com"
+        },
+        {
+            "name": "Stephan Ploehn",
+            "email": "stephan@deichrakete.com",
+            "homepage": "https://deichrakete.com"
+        }
+    ],
+    "require": {
+        "getkirby/composer-installer": "^1.2"
+    },
+    "extra": {
+        "installer-name": "images"
     }
-  ],
-  "require": {
-    "getkirby/composer-installer": "^1.2"
-  },
-  "extra": {
-    "installer-name": "images"
-  }
 }

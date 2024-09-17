@@ -35,13 +35,13 @@ if (!$config) {
     throw new Exception('images: srcset ' . $srcset . ' doesn\'t exist');
 }
 
-if (option('foerdeliebe.images.avif') === true) {
+if (option('deichrakete.images.avif') === true) {
     foreach ($avif = $config as $key => $value) {
         $avif[$key]['format'] = 'avif';
     }
 }
 
-if (option('foerdeliebe.images.webp') === true) {
+if (option('deichrakete.images.webp') === true) {
     foreach ($webp = $config as $key => $value) {
         $webp[$key]['format'] = 'webp';
     }
@@ -66,7 +66,7 @@ if (option('foerdeliebe.images.webp') === true) {
 
 <figure <?php e($class != '', 'class="' . $class . '"') ?> >
     <picture>
-        <?php if (option('foerdeliebe.images.avif') === true): ?>
+        <?php if (option('deichrakete.images.avif') === true): ?>
             <source
                 srcset="<?= $image->srcset($avif) ?>"
                 sizes="<?= $sizes ?>"
@@ -74,7 +74,7 @@ if (option('foerdeliebe.images.webp') === true) {
             >
         <?php endif; ?>
 
-        <?php if (option('foerdeliebe.images.webp') === true): ?>
+        <?php if (option('deichrakete.images.webp') === true): ?>
             <source
                 srcset="<?= $image->srcset($webp) ?>"
                 sizes="<?= $sizes ?>"
